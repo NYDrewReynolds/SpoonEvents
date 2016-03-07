@@ -7,12 +7,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-
-# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'rails_12factor', group: :production
-
 gem 'web-console', group: :development
 
 group :development, :test do

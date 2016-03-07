@@ -3,6 +3,9 @@ class Event < ActiveRecord::Base
   validates :location, presence: true
   validates :start_time, presence: true
 
+  has_many :registrations
+  has_many :users, through: :registrations
+
   def directions_link
     self.location.sub(' ', '+')
   end

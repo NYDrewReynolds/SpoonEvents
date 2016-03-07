@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Your account was successfully created!"
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:danger] = "There was an error creating your account."
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       flash[:success] = "Your account was successfully updated!"
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:danger] = "There was an error updating your account."

@@ -4,12 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-
-  # def event_owner
-  #   @current_user.id = Event.find(params[:id]).owner_id
-  # end
 
   def require_login
     unless current_user
@@ -19,5 +15,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :require_login
-  # helper_method :event_owner
 end

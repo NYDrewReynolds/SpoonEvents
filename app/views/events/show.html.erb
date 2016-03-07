@@ -3,6 +3,6 @@
 <h3><%= @event.location %></h3>
 <p> <a href="https://www.google.com/maps/dir//<%= @event.directions_link %>" target="_blank">Get Directions </a></p>
 
-<h3><%= @event.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h3>
+<h3><%= @event.readable_date %></h3>
 
 <!-- <h3><#%= @event.owner %></h3> -->

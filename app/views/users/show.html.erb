@@ -1,5 +1,7 @@
-<h1><%= @current_user.name %>
+<h2><%= @user.name %></h2>
 
-  <h3><%= @current_user.email %>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
 
-    <%= link_to "Logout", logout_path, method: 'delete' %>
+<!-- if user has owned events, show them -->
+<!-- <h3>Organized Events</h3> -->
+<h3>Events You're Attending</h3>

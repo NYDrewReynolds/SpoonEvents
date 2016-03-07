@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+
+  def index
+    @events = Event.all
+  end
+
   def new
     @event = Event.new
   end
@@ -10,18 +15,21 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
+      flash[:success] = "Your event was successfully created!"
       redirect_to @event
     else
+      flash[:danger] = "There was an error creating your event."
       render :new
     end
   end
 
   def update
     @event = Event.find(params[:id])
-
     if @event.update(event_params)
+      flash[:success] = "Your account was successfully updated!"
       redirect_to @event
     else
+      flash[:danger] = "There was an error updating your account."
       render :edit
     end
   end

@@ -1,16 +1,5 @@
-<h1>Spoon Events</h1>
-<% if current_user %>
-  <li><a class="disabled"><%= current_user.name %></a></li>
-  <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
-<% else %>
-  <%= form_for(:session, url: login_path, html: {class: "navbar-form"}) do |f| %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-
-    <%= f.submit "Login", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+<div class="jumbotron text-center">
+  <h1>Welcome to Spoon Events!</h1>
+  <p>Attend events created by Spoon campus reps or organize your own!</p>
+  <%= link_to "Sign Me Up!", new_user_path, class: "btn btn-success btn-lg" %>
+</div>

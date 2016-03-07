@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:edit]
 
   def new
     @user = User.new
@@ -11,8 +12,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "Your account was successfully created!"
       redirect_to @user
     else
+      flash[:danger] = "There was an error creating your account."
       render :new
     end
   end
@@ -21,18 +24,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
+      flash[:success] = "Your account was successfully updated!"
       redirect_to @user
     else
+      flash[:danger] = "There was an error updating your account."
       render :edit
     end
   end
 
   def show
-    @current_user ||= @current_user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def destroy
     @user.destroy
+    flash[:info] = "Your account was successfully deleted. Sad to see you go!"
     redirect_to root_path
   end
 

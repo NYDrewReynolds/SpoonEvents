@@ -31,4 +31,5 @@ RSpec.describe User, type: :model do
     expect(@user_one).to be_valid
     expect(@user_two).to_not be_valid
   end
+
 end

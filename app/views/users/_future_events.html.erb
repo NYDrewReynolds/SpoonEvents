@@ -1,7 +1,7 @@
-<h1>All Upcoming Events</h1>
-
+<% unless future_events.empty? %>
+<h3>Events You're Attending</h3>
 <div class="row">
-  <% all_future_events.each do |event| %>
+  <% future_events.each do |event| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <div class="caption">
@@ -17,3 +17,4 @@
   </div>
   <% end %>
 </div>
+<% end %>

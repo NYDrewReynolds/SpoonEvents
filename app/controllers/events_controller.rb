@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :require_login, only: [:create, :edit]
+  before_action :require_login, only: [:create, :edit, :new]
+  before_action :require_owner, only: [:edit, :destroy]
 
   def index
     @events = Event.all
@@ -41,6 +42,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
   end

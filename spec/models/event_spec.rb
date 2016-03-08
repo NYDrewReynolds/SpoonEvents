@@ -25,8 +25,17 @@ RSpec.describe Event, type: :model do
     expect(@event).to_not be_valid
   end
 
+  it "can be assigned an owner" do
+    expect(@user.id).to be(@event.owner.id)
+  end
+
   it 'is invalid without a start time' do
     @event.start_time = nil
     expect(@event).to_not be_valid
+  end
+
+  it "includes name in share link" do
+    link = @event.share_text
+    expect(link).to include("Test%20Event")
   end
 end

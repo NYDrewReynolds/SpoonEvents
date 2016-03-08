@@ -2,12 +2,14 @@
   <div class="col-md-6">
     <h1><%= @event.name %></h1>
     <h4>Organized by <%= @event.owner.name %></h4>
+    <%= render 'owner_tools' %>
     <h3><%= @event.location.titleize %></h3>
     <p> <a href="https://www.google.com/maps/dir//<%= @event.directions_link %>" target="_blank">Get Directions </a></p>
     <p><b>Date:</b> <%= @event.date %> </p>
     <p><b>Time:</b> <%= @event.time %> </p>
 
     <%= render 'rsvp' %>
+
   </div>
   <div class="col-md-6">
     <%= render 'registrations' %>

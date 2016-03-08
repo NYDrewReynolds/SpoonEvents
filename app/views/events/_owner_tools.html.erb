@@ -1,0 +1,7 @@
+<% if current_user && @event.owner = current_user %>
+<div class="well well-sm text-center">
+  <h4>Admin Tools</h4>
+  <%= link_to "Edit Event", edit_event_path(@event), class: "btn btn-info" %>
+  <%= link_to 'Permanently Delete Event',  { action: :destroy, id: @event.id }, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>

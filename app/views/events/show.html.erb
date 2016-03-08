@@ -5,8 +5,4 @@
 <p><b>Date:</b> <%= @event.date %> </p>
 <p><b>Time:</b> <%= @event.time %> </p>
 
-<%#= link_to "Attend Event", event_path(@event), class: "btn btn-success" %>
-
-
-<%#= link_to "Attend Event", {:action => :event_create_registration}, :method => :post, :event_id => params[:id], class: "btn btn-success" %>
-<%= link_to "Attend Event", registrations_path(:user_id => current_user.id, :event_id => @event.id), :method => :post %>
+<%= render 'rsvp' %>

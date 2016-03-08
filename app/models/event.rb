@@ -18,8 +18,4 @@ class Event < ActiveRecord::Base
     start_time.strftime("%I:%M %p")
   end
 
-  def create_registration(user)
-    registrations.create(user_id: user.id)
-  end
-
 end

@@ -1,8 +1,8 @@
 <% if current_user && current_user.events.include?(@event) %>
-<button type="button" class="btn btn-success btn-lg active">You're Going!</button>
+<button type="button" class="btn btn-success btn-lg btn-fill active">You're Going!</button>
 <%= render 'click_to_tweet' %>
 <% elsif current_user %>
-<%= link_to "Attend Event", registrations_path(:user_id => current_user.id, :event_id => @event.id), :method => :post, class: "btn btn-lg btn-success" %>
+<%= link_to "Attend Event", registrations_path(:user_id => current_user.id, :event_id => @event.id), :method => :post, class: "btn btn-lg btn-fill btn-success" %>
 <% else %>
-<%= link_to "Sign Up to Attend", new_user_path, class: "btn btn-lg btn-info" %>
+<%= link_to "Sign Up to Attend", new_user_path, class: "btn btn-lg btn-info btn-fill" %>
 <% end %>

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   before(:each) do
-    @event = Event.create(name: "Test Event", location: '45 Narwood Rd. Massapequa, NY 11758', start_time: 'Tue, 08 Mar 2016 14:30:00 UTC +00:00')
+    @user = @user = User.create(name: "Drew Reynolds", email: 'drew@spoon.com', password: 'password')
+    @event = Event.create(user_id: @user.id, name: "Test Event", location: '45 Narwood Rd. Massapequa, NY 11758', start_time: 'Tue, 08 Mar 2016 14:30:00 UTC +00:00')
   end
 
   it "is valid with all parameters" do
@@ -16,6 +17,11 @@ RSpec.describe Event, type: :model do
 
   it "is invalid without a location" do
     @event.location = nil
+    expect(@event).to_not be_valid
+  end
+
+  it "is invalid without an owner" do
+    @event.user_id = nil
     expect(@event).to_not be_valid
   end
 

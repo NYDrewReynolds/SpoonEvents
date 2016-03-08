@@ -1,8 +1,12 @@
 <h1><%= @event.name %></h1>
-
-<h3><%= @event.location %></h3>
+<h4>Organized by <%= @event.owner.name %></h4>
+<h3><%= @event.location.titleize %></h3>
 <p> <a href="https://www.google.com/maps/dir//<%= @event.directions_link %>" target="_blank">Get Directions </a></p>
+<p><b>Date:</b> <%= @event.date %> </p>
+<p><b>Time:</b> <%= @event.time %> </p>
 
-<h3><%= @event.readable_date %></h3>
+<%#= link_to "Attend Event", event_path(@event), class: "btn btn-success" %>
 
-<!-- <h3><#%= @event.owner %></h3> -->
+
+<%#= link_to "Attend Event", {:action => :event_create_registration}, :method => :post, :event_id => params[:id], class: "btn btn-success" %>
+<%= link_to "Attend Event", registrations_path(:user_id => current_user.id, :event_id => @event.id), :method => :post %>

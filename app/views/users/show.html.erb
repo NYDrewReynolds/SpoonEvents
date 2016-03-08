@@ -1,7 +1,23 @@
-<h2><%= @user.name %></h2>
+<h1><%= @user.name %> <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-info" %> </h1>
 
-<%= link_to "Edit Profile", edit_user_path(@user) %>
 
 <!-- if user has owned events, show them -->
 <!-- <h3>Organized Events</h3> -->
-<h3>Events You're Attending</h3>
+<h2>Events You're Attending</h2>
+<div class="row">
+  <% @user.events.each do |event| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3 class="text-center"><%= event.name %></h3>
+        <p><b>Date:</b> <%= event.date %> </p>
+        <p><b>Time:</b> <%= event.time %> </p>
+        <p><b>Location:</b> <%= event.location %> </p>
+        <div class="text-center">
+          <%= link_to "RSVP Here!", event_path(event), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<% if @event.users.empty? %>
+<h3 class="text-center">No Attendees Yet!</h3>
+
+<% else %>
+<h3 class="text-center">Attendees: <%= @event.users.count %></h3>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+    </tr>
+    <% @event.users.each_with_index do |attendee, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= attendee.name %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<% end %>

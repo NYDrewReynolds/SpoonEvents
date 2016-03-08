@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'twitter-bootstrap-rails'
 gem 'rails_12factor', group: :production
 gem 'web-console', group: :development
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -11,6 +11,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_12factor', group: :production
 gem 'web-console', group: :development
 gem 'font-awesome-rails'
+gem 'gsdk'
 
 group :development, :test do
   gem 'byebug'
